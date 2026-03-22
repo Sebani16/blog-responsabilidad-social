@@ -10,6 +10,7 @@ import MainLayout from '../layouts/MainLayout.astro';
     <div class="grid-levels">
       <article class="level-card dynamic-card border-blue animate-fade-in-up" style="animation-delay: 0.4s;">
         <div class="card-inner">
+          <div class="icon-orb bg-blue">01</div>
           <h3>Análisis a nivel local</h3>
           <p>
             La situación medioambiental de Ciudad Guabinas está profundamente conectada a su posición geográfica en el núcleo industrial del Valle del Cauca. Al estar situada en un conjunto de apartamentos próximo a fábricas de fundición y cemento, la vivienda se convierte en un receptor pasivo de partículas en el aire y emisiones contaminantes. Esta problemática se refleja en la acumulación constante de sedimentos en el interior, lo que afecta la limpieza del hogar y, de manera crucial, pone en riesgo la salud respiratoria de sus habitantes. Se detecta una alta incidencia de casos de rinitis alérgica y dificultades respiratorias que no se pueden desestimar. Desde el enfoque de la Ruta de Innovación Social (Pacheco Duarte et al., 2022), esta realidad demanda una respuesta que supere la mera queja. La innovación social se activa cuando la unidad familiar se percata de que el bienestar es una construcción interna, no un elemento externo. Así, la creación de una huerta de plantas medicinales dentro del hogar se convierte en una estrategia de mitigación económica pero de gran impacto. Las plantas no solo tienen un propósito decorativo, sino que actúan como filtros biológicos eficaces, mejorando la humedad del ambiente y capturando partículas en suspensión, transformando así el microentorno residencial en un espacio resiliente ante la presión industrial del área de Yumbo.
@@ -19,6 +20,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 
       <article class="level-card dynamic-card border-orange animate-fade-in-up" style="animation-delay: 0.6s;">
         <div class="card-inner">
+          <div class="icon-orb bg-orange">02</div>
           <h3>Análisis a nivel nacional</h3>
           <p>
             A nivel nacional, el ejemplo de Yumbo representa un caso crucial de los obstáculos que enfrenta la planificación territorial en Colombia. A lo largo del tiempo, el desarrollo económico ha privilegiado el crecimiento industrial sin implementar límites de protección ambiental adecuados para los nuevos proyectos residenciales densos. Situaciones análogas se observan en áreas como Itagüí o en el sur de Bogotá, donde coexisten la industria pesada y la vivienda. De acuerdo con lo expuesto por Reyna Cruz et al. (2019), Colombia sufre de una falta de cohesión en la comprensión de la salud pública. Existe una inclinación a abordar las enfermedades respiratorias desde una perspectiva únicamente farmacológica, desatendiendo los factores ambientales que las provocan. Esta desconexión cultural ha resultado en que la población dependa de soluciones químicas de efecto rápido, en lugar de promover ambientes de prevención. El proyecto de la huerta medicinal tiene como objetivo precisamente reducir esa brecha interdisciplinaria, rescatando la botánica aplicada como un recurso de salud preventiva que debería ser incluido en las políticas de bienestar nacional, reconociendo que la biodiversidad de Colombia proporciona alternativas para la filtración y purificación del aire que aún no han sido aprovechadas en el urbanismo contemporáneo.
@@ -28,6 +30,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 
       <article class="level-card dynamic-card border-green animate-fade-in-up" style="animation-delay: 0.8s;">
         <div class="card-inner">
+          <div class="icon-orb bg-green">03</div>
           <h3>Análisis a nivel global</h3>
           <p>
             En el ámbito latinoamericano, esta cuestión se incorpora al debate sobre la equidad ambiental y el derecho a la ciudad. En naciones como México, Chile y Brasil, la expansión urbana ha conducido a la creación de "áreas de sacrificio" donde la disponibilidad de aire puro se ha vuelto un bien limitado para las familias que residen en las proximidades de centros industriales. La escasez de espacios verdes en la propiedad horizontal actual en la región refleja una política urbana que prioriza la rentabilidad del terreno por encima de la salud del ecosistema. Sin embargo, se destaca con fuerza el concepto de Soberanía Sanitaria. Este enfoque propone que la familia urbana retome el control sobre su microclima y su kit básico de salud. Al realizar una comparación entre nuestra situación en Guabinas y otras ciudades de la región, se hace claro que la implementación de huertas medicinales en interiores representa una adaptación indispensable. Esta es una respuesta creativa frente a la crisis climática y la degradación ambiental de las áreas urbanas, donde el hogar deja de ser solo un lugar de refugio para transformarse en un centro productor de bienestar y aire puro, alineándose con las estrategias globales de sostenibilidad y salud comunitaria.
@@ -40,14 +43,22 @@ import MainLayout from '../layouts/MainLayout.astro';
 
 <style>
   .content-section { padding: 2rem 0; }
-  .header-panel { padding: 2rem; text-align: center; margin-bottom: 2.5rem; border-top: 6px solid var(--color-primary-blue); margin-inline: 1rem; }
+  .header-panel { padding: 2rem; text-align: center; margin-bottom: 3.5rem; border-top: 6px solid var(--color-primary-blue); margin-inline: 1rem; }
   .header-panel h2 { color: var(--color-primary-blue); margin: 0; font-size: 2.4rem; font-weight: 800; }
   .grid-levels { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; padding: 1rem; }
-  .level-card { background: white; border-radius: 12px; display: flex; flex-direction: column; }
-  .card-inner { padding: 2.5rem 2rem; flex: 1; }
+  
+  .level-card { background: white; border-radius: 12px; position: relative; overflow: visible; display: flex; flex-direction: column;}
+  .card-inner { padding: 3.5rem 2rem 2rem 2rem; flex: 1; position: relative;}
+  
   .border-blue { border-top: 6px solid var(--color-primary-blue); }
   .border-orange { border-top: 6px solid var(--color-action-orange); }
   .border-green { border-top: 6px solid var(--color-accent-green); }
+  
+  .icon-orb { position: absolute; top: -25px; left: 2rem; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 1.2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+  .bg-blue { background: var(--color-primary-blue); }
+  .bg-orange { background: var(--color-action-orange); }
+  .bg-green { background: var(--color-accent-green); }
+
   .card-inner h3 { margin-top: 0; font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 800; }
   .border-blue h3 { color: var(--color-primary-blue); }
   .border-orange h3 { color: var(--color-action-orange); }
