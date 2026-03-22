@@ -12,12 +12,12 @@ const { title, description } = Astro.props;
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<BaseHead title={`${title} | Responsabilidad Social`} description={description} />
+		<BaseHead title={`${title} | Pulmones Verdes`} description={description} />
 	</head>
 	<body>
     <header class="site-header">
       <div class="header-brand animate-fade-in-up">
-        <h1>Ecología y Responsabilidad Social</h1>
+        <h1>Pulmones Verdes: Huerta Medicinal para la Resiliencia Familiar en Ciudad Guabinas</h1>
         <p class="subtitle">Familia Moreno Martínez</p>
       </div>
       <div class="nav-wrapper">
@@ -54,16 +54,17 @@ const { title, description } = Astro.props;
   h1 {
     color: white;
     margin: 0;
-    font-size: 3.2rem;
+    font-size: 2.2rem;
     font-weight: 800;
-    letter-spacing: -1.5px;
+    letter-spacing: -1px;
     text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    line-height: 1.3;
   }
   .subtitle {
     color: var(--color-highlight-yellow);
     font-size: 1.3rem;
     font-weight: 600;
-    margin-top: 0.8rem;
+    margin-top: 1rem;
     opacity: 0.95;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -103,7 +104,7 @@ const { title, description } = Astro.props;
   
   @media (max-width: 768px) {
     h1 {
-      font-size: 2.2rem;
+      font-size: 1.8rem;
     }
   }
 </style>

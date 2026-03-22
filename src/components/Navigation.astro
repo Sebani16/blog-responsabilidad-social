@@ -1,15 +1,28 @@
 ---
 const pathname = new URL(Astro.request.url).pathname;
-const currentPath = pathname.replace(/^\/|\/$/g, '');
+// Obtenemos el BASE_URL configurado en astro.config.mjs (ej: /blog-responsabilidad-social)
+const base = import.meta.env.BASE_URL;
+
+// Limpiamos el base del pathname para saber qué tab marcar "active", y quitamos '/' extras al final
+const cleanPath = pathname.replace(base, '').replace(/\/$/, '');
+const currentPath = cleanPath === '' ? '' : cleanPath.replace(/^\//, '');
+
+// Función helper para construir URLs absolutas correctas relativas a la carpeta base del repo
+const getPath = (route) => {
+  if (!route) return base;
+  // Garantizamos evitar dobles slashes
+  const sep = base.endsWith('/') ? '' : '/';
+  return `${base}${sep}${route}`;
+};
 ---
 <nav aria-label="Navegación principal" class="main-nav">
   <ul class="nav-tabs">
-    <li><a href="/" class={currentPath === "" ? "active" : ""}>Inicio</a></li>
-    <li><a href="/comunidad" class={currentPath === "comunidad" ? "active" : ""}>Comunidad</a></li>
-    <li><a href="/problematica-1" class={currentPath === "problematica-1" ? "active" : ""}>Problemática 1</a></li>
-    <li><a href="/problematica-2" class={currentPath === "problematica-2" ? "active" : ""}>Problemática 2</a></li>
-    <li><a href="/justificacion" class={currentPath === "justificacion" ? "active" : ""}>Justificación</a></li>
-    <li><a href="/plan-de-trabajo" class={currentPath === "plan-de-trabajo" ? "active" : ""}>Plan de Trabajo</a></li>
+    <li><a href={getPath('')} class={currentPath === "" ? "active" : ""}>Inicio</a></li>
+    <li><a href={getPath('comunidad')} class={currentPath === "comunidad" ? "active" : ""}>Comunidad</a></li>
+    <li><a href={getPath('problematica-1')} class={currentPath === "problematica-1" ? "active" : ""}>Problemática 1</a></li>
+    <li><a href={getPath('problematica-2')} class={currentPath === "problematica-2" ? "active" : ""}>Problemática 2</a></li>
+    <li><a href={getPath('justificacion')} class={currentPath === "justificacion" ? "active" : ""}>Justificación</a></li>
+    <li><a href={getPath('plan-de-trabajo')} class={currentPath === "plan-de-trabajo" ? "active" : ""}>Plan de Trabajo</a></li>
   </ul>
 </nav>
 
