@@ -19,9 +19,12 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--color-bg);
+  /* The var(--bg-url) is dynamically mounted on body to resolve exact GitHub Pages absolute base paths */
   background-image: 
-    radial-gradient(circle at top right, rgba(0, 165, 80, 0.08), transparent 40%),
-    radial-gradient(circle at bottom left, rgba(0, 80, 139, 0.08), transparent 40%);
+    linear-gradient(rgba(253, 253, 253, 0.88), rgba(253, 253, 253, 0.88)),
+    var(--bg-url, none);
+  background-size: cover;
+  background-position: center;
   background-attachment: fixed;
   color: var(--color-text);
   font-family: var(--font-family-base);

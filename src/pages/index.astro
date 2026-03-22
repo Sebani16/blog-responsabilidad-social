@@ -23,8 +23,8 @@ import MainLayout from '../layouts/MainLayout.astro';
       </div>
 
     </div>
-    <div class="image-wrapper dynamic-card">
-      <img src="https://picsum.photos/seed/ecology/800/400" alt="Ecología Comunitaria" class="hero-image" />
+    <div class="image-wrapper dynamic-card animate-fade-in-up" style="animation-delay: 0.4s;">
+      <img src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/garden-with-plants.png`} alt="Huerta Medicinal en Ciudad Guabinas" class="hero-image" />
     </div>
   </section>
 </MainLayout>
