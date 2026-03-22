@@ -8,7 +8,7 @@ const cleanPath = pathname.replace(base, '').replace(/\/$/, '');
 const currentPath = cleanPath === '' ? '' : cleanPath.replace(/^\//, '');
 
 // Función helper para construir URLs absolutas correctas relativas a la carpeta base del repo
-const getPath = (route) => {
+const getPath = (route: string) => {
   if (!route) return base;
   // Garantizamos evitar dobles slashes
   const sep = base.endsWith('/') ? '' : '/';
