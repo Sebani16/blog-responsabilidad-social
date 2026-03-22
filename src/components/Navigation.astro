@@ -1,0 +1,54 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.replace(/^\/|\/$/g, '');
+---
+<nav aria-label="Navegación principal" class="main-nav">
+  <ul class="nav-tabs">
+    <li><a href="/" class={currentPath === "" ? "active" : ""}>Inicio</a></li>
+    <li><a href="/comunidad" class={currentPath === "comunidad" ? "active" : ""}>Comunidad</a></li>
+    <li><a href="/problematica-1" class={currentPath === "problematica-1" ? "active" : ""}>Problemática 1</a></li>
+    <li><a href="/problematica-2" class={currentPath === "problematica-2" ? "active" : ""}>Problemática 2</a></li>
+    <li><a href="/justificacion" class={currentPath === "justificacion" ? "active" : ""}>Justificación</a></li>
+    <li><a href="/plan-de-trabajo" class={currentPath === "plan-de-trabajo" ? "active" : ""}>Plan de Trabajo</a></li>
+  </ul>
+</nav>
+
+<style>
+  .main-nav {
+    padding: 0 1rem;
+  }
+  .nav-tabs {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    margin: 0;
+    padding: 0.8rem 0;
+    max-width: 1200px;
+    margin-inline: auto;
+  }
+  .nav-tabs a {
+    display: block;
+    padding: 0.8rem 1.6rem;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 40px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+  }
+  .nav-tabs a:hover,
+  .nav-tabs a:focus-visible {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  }
+  .nav-tabs a.active {
+    background-color: var(--color-highlight-yellow);
+    color: var(--color-text);
+    box-shadow: 0 6px 15px rgba(255, 194, 14, 0.5);
+    transform: scale(1.05);
+  }
+</style>

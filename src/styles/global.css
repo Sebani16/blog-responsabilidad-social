@@ -1,0 +1,83 @@
+:root {
+  --color-primary-blue: #00508B;
+  --color-accent-green: #00A550;
+  --color-action-orange: #F26522;
+  --color-highlight-yellow: #FFC20E;
+  --color-neutral-gray: #9E9E9E;
+  --color-secondary-green: #3E5C41;
+  --color-bg: #fdfdfd; 
+  --color-text: #2d3748;
+
+  --font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg);
+  background-image: 
+    radial-gradient(circle at top right, rgba(0, 165, 80, 0.08), transparent 40%),
+    radial-gradient(circle at bottom left, rgba(0, 80, 139, 0.08), transparent 40%);
+  background-attachment: fixed;
+  color: var(--color-text);
+  font-family: var(--font-family-base);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--color-primary-blue);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-action-orange);
+}
+
+/* Base animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(35px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes pulseSoft {
+  0% { transform: scale(1); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+  50% { transform: scale(1.03); box-shadow: 0 10px 25px rgba(0,165,80,0.2); }
+  100% { transform: scale(1); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+}
+
+.animate-fade-in-up {
+  opacity: 0; /* Handled by animation fill mode */
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+}
+
+/* Interactive Card Base */
+.dynamic-card {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.dynamic-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}

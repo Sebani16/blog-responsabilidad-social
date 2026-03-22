@@ -1,0 +1,109 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Navigation from '../components/Navigation.astro';
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<BaseHead title={`${title} | Responsabilidad Social`} description={description} />
+	</head>
+	<body>
+    <header class="site-header">
+      <div class="header-brand animate-fade-in-up">
+        <h1>Ecología y Responsabilidad Social</h1>
+        <p class="subtitle">Familia Moreno Martínez</p>
+      </div>
+      <div class="nav-wrapper">
+        <Navigation />
+      </div>
+    </header>
+		<main class="container animate-fade-in-up" style="animation-delay: 0.15s;">
+			<slot />
+		</main>
+    <footer>
+      <div class="footer-content">
+        <p>&copy; {new Date().getFullYear()} Proyecto de Responsabilidad Social.</p>
+        <div class="footer-accent-line"></div>
+      </div>
+    </footer>
+	</body>
+</html>
+
+<style>
+  .site-header {
+    background: linear-gradient(135deg, var(--color-primary-blue), var(--color-secondary-green));
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 8px 30px rgba(0,80,139,0.3);
+  }
+  .header-brand {
+    padding: 3rem 1rem 2rem 1rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: white;
+  }
+  h1 {
+    color: white;
+    margin: 0;
+    font-size: 3.2rem;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  }
+  .subtitle {
+    color: var(--color-highlight-yellow);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-top: 0.8rem;
+    opacity: 0.95;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .nav-wrapper {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255,255,255,0.2);
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3.5rem 1rem;
+    min-height: 60vh;
+  }
+  footer {
+    background: linear-gradient(to right, #1a202c, var(--color-primary-blue));
+    color: white;
+    text-align: center;
+    margin-top: 5rem;
+  }
+  .footer-content {
+    padding: 4rem 1rem;
+    background: rgba(0,0,0,0.3);
+    position: relative;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+  }
+  .footer-accent-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(to right, var(--color-accent-green), var(--color-highlight-yellow), var(--color-action-orange));
+  }
+  
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.2rem;
+    }
+  }
+</style>

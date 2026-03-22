@@ -1,0 +1,62 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+<MainLayout title="Problemática 2" description="Aculturación Botánica">
+  <section class="content-section">
+    <div class="glass-panel header-panel animate-fade-in-up" style="animation-delay: 0.2s;">
+      <h2>Problemática 2: Aculturación Botánica y Saberes Tradicionales</h2>
+      <p class="top-para">
+        La transición del entorno rural al modelo de vida urbana actual de propiedad horizontal acelerada ha 
+        generado una gran ruptura de costumbres botánicas medicinales desvinculando socialmente su valor preventivo.
+      </p>
+    </div>
+      
+    <div class="grid-levels">
+       <article class="level-card dynamic-card border-blue animate-fade-in-up" style="animation-delay: 0.4s;">
+        <div class="card-inner">
+          <div class="icon-orb bg-blue">01</div>
+          <h3>Nivel Local</h3>
+          <p>Ante la falta de espacios, limitamos nuestra salud al consumo farmacológico de inmediatez. Nuestra Huerta busca recuperar esa "Soberanía de agencia botánica" propiciando un entorno resiliente directamente en casa.</p>
+        </div>
+      </article>
+      <article class="level-card dynamic-card border-orange animate-fade-in-up" style="animation-delay: 0.6s;">
+        <div class="card-inner">
+          <div class="icon-orb bg-orange">02</div>
+          <h3>Nivel Nacional</h3>
+          <p>La paradoja estructural de Colombia (el 2do país mas biodiverso enfrentando un alfabetismo y desconocimiento natural por la población urbana). Una reconexión herbolaria a pequeña escala contribuye al plan general sanitario mas robusto.</p>
+        </div>
+      </article>
+      <article class="level-card dynamic-card border-green animate-fade-in-up" style="animation-delay: 0.8s;">
+        <div class="card-inner">
+          <div class="icon-orb bg-green">03</div>
+          <h3>Nivel Global</h3>
+          <p>La homogenización por globalización genera la marginalización del factor histórico. La "Resiliencia Biocultural" demuestra que mantener activas y vivas las especies implica defender un tejido cultural valioso en las megaciudades del continente.</p>
+         </div>
+      </article>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .content-section { padding: 2rem 0; }
+  .header-panel { padding: 3rem 2rem; text-align: center; margin-bottom: 3.5rem; border-top: 6px solid var(--color-secondary-green); margin-inline: 1rem; }
+  .header-panel h2 { color: var(--color-secondary-green); margin-bottom: 1.5rem; font-size: 2.4rem; font-weight: 800; }
+  .top-para { font-size: 1.25rem; margin-bottom: 0; max-width: 800px; margin-inline: auto; color: var(--color-text); line-height: 1.8; }
+  .grid-levels { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; padding: 1rem; }
+  .level-card { background: white; border-radius: 12px; position: relative; overflow: visible;}
+  .card-inner { padding: 3rem 2rem 2rem 2rem; display: flex; flex-direction: column; height: 100%; position: relative;}
+  .border-blue { border-top: 6px solid var(--color-primary-blue); }
+  .border-orange { border-top: 6px solid var(--color-action-orange); }
+  .border-green { border-top: 6px solid var(--color-accent-green); }
+  
+  .icon-orb { position: absolute; top: -25px; left: 2rem; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 1.2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+  .bg-blue { background: var(--color-primary-blue); }
+  .bg-orange { background: var(--color-action-orange); }
+  .bg-green { background: var(--color-accent-green); }
+
+  .card-inner h3 { margin-top: 0; font-size: 1.8rem; margin-bottom: 1rem; font-weight: 800;}
+  .border-blue h3 { color: var(--color-primary-blue); }
+  .border-orange h3 { color: var(--color-action-orange); }
+  .border-green h3 { color: var(--color-accent-green); }
+  .card-inner p { line-height: 1.7; color: #4a5568; font-size: 1.05rem;}
+</style>

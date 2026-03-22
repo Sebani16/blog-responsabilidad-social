@@ -1,0 +1,57 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+<MainLayout 
+  title="Inicio" 
+  description="Pulmones Verdes: Huerta Medicinal para la Resiliencia Familiar en Ciudad Guabinas"
+>
+  <section class="hero glass-panel animate-fade-in-up" style="animation-delay: 0.2s;">
+    <h2 class="hero-title">Pulmones Verdes: Huerta Medicinal para la Resiliencia Familiar en Ciudad Guabinas</h2>
+    <p class="hero-text">
+      Este espacio documenta el Proyecto Social de Formación de Responsabilidad Social (UNIMINUTO), 
+      enfocado en el microentorno de la Familia Moreno Martínez en la comunidad de Ciudad Guabinas.
+    </p>
+    <div class="image-wrapper dynamic-card">
+      <img src="https://picsum.photos/seed/ecology/800/400" alt="Ecología en Ciudad Guabinas" class="hero-image" />
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 3.5rem 2rem;
+    margin: 2rem auto;
+    max-width: 1000px;
+    border-top: 6px solid var(--color-accent-green);
+  }
+  .hero-title {
+    color: var(--color-primary-blue);
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+  .hero-text {
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    color: var(--color-text);
+    line-height: 1.8;
+  }
+  .image-wrapper {
+    overflow: hidden;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 12px;
+  }
+  .hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.8s ease;
+  }
+  .image-wrapper:hover .hero-image {
+    transform: scale(1.05);
+  }
+</style>
