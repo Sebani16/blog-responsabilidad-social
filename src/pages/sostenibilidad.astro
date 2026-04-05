@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <MainLayout title="Sostenibilidad" description="Sostenibilidad de la Actividad">
@@ -11,39 +12,56 @@ import MainLayout from "../layouts/MainLayout.astro";
       Pulmones Verdes: Huerta Medicinal para la Resiliencia Familiar en Ciudad
       Guabinas.
     </h2>
-    <div class="hero-text text-left" style="animation-delay: 0.2s;">
-      <p>
-        El proyecto “Pulmones Verdes: Huerta Medicinal para la Resiliencia
-        Familiar en Ciudad Guabinas” surge como una respuesta práctica a las
-        condiciones ambientales que afectan la calidad de vida en el entorno
-        familiar, especialmente la contaminación del aire y la pérdida del
-        conocimiento sobre el uso de plantas medicinales. En este sentido, la
-        propuesta no solo busca solucionar una problemática puntual, sino
-        generar un proceso sostenible que articule el bienestar humano con el
-        cuidado del entorno.
-      </p>
 
-      <p>
-        La sostenibilidad del proyecto se construye a partir de acciones simples
-        pero significativas que pueden mantenerse en el tiempo sin requerir
-        grandes recursos económicos. La adecuación de espacios dentro del
-        apartamento y el cuidado cotidiano de las plantas permiten que la huerta
-        se convierta en una práctica permanente. Además, al ser desarrollada en
-        el núcleo familiar, se fortalece la apropiación del proceso, lo que
-        aumenta las posibilidades de continuidad más allá del ejercicio
-        académico.
-      </p>
+    <div class="layout-grid" style="animation-delay: 0.3s;">
+      <div class="text-column">
+        <p>
+          El proyecto “Pulmones Verdes: Huerta Medicinal para la Resiliencia
+          Familiar en Ciudad Guabinas” surge como una respuesta práctica a las
+          condiciones ambientales que afectan la calidad de vida en el entorno
+          familiar, especialmente la contaminación del aire y la pérdida del
+          conocimiento sobre el uso de plantas medicinales. En este sentido, la
+          propuesta no solo busca solucionar una problemática puntual, sino
+          generar un proceso sostenible que articule el bienestar humano con el
+          cuidado del entorno.
+        </p>
 
-      <p>
-        Un aspecto clave es el componente formativo. A través de las actividades
-        realizadas, la familia no solo participa, sino que aprende a reconocer
-        el valor de las plantas como aliadas para la salud y el bienestar. Este
-        aprendizaje transforma la percepción frente al entorno, pasando de una
-        posición pasiva frente a la contaminación a una actitud activa de
-        autocuidado y adaptación. De esta manera, el hogar deja de ser
-        únicamente un espacio afectado por el contexto industrial y se convierte
-        en un escenario de solución y resiliencia.
-      </p>
+        <p>
+          La sostenibilidad del proyecto se construye a partir de acciones
+          simples pero significativas que pueden mantenerse en el tiempo sin
+          requerir grandes recursos económicos. La adecuación de espacios dentro
+          del apartamento y el cuidado cotidiano de las plantas permiten que la
+          huerta se convierta en una práctica permanente. Además, al ser
+          desarrollada en el núcleo familiar, se fortalece la apropiación del
+          proceso, lo que aumenta las posibilidades de continuidad más allá del
+          ejercicio académico.
+        </p>
+      </div>
+
+      <div class="image-column">
+        <div class="image-wrapper shadow-box">
+          <img
+            src={`${baseUrl}/house-with-plants.png`}
+            alt="Huerta en casa"
+            class="hero-image"
+          />
+          <div class="image-overlay">Un respiro natural para el hogar</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-full mt-2">
+      <div class="highlight-quote">
+        <span class="icon">🌿</span>
+        <p>
+          Un aspecto clave es el componente formativo. A través de las
+          actividades realizadas, la familia no solo participa, sino que aprende
+          a reconocer el valor de las plantas como aliadas para la salud y el
+          bienestar. Este aprendizaje transforma la percepción frente al
+          entorno, pasando de una posición pasiva frente a la contaminación a
+          una actitud activa de autocuidado y adaptación.
+        </p>
+      </div>
 
       <p>
         Por otro lado, el proyecto se ajusta a la realidad del territorio. La
@@ -63,40 +81,49 @@ import MainLayout from "../layouts/MainLayout.astro";
         su posible réplica en otros hogares con condiciones similares.
       </p>
 
-      <div class="ident-box">
+      <div class="ident-box shadow-box">
         <h3>Aporte a los Objetivos de Desarrollo Sostenible:</h3>
-        <p>
+        <p class="mb-2">
           El desarrollo de este proyecto se relaciona con distintos Objetivos de
           Desarrollo Sostenible, ya que aborda de manera integral problemáticas
           ambientales, sociales y de salud:
         </p>
         <ul class="ident-list">
-          <li><strong>ODS 3:</strong> Salud y Bienestar.</li>
-          <p>
-            La implementación de la huerta medicinal contribuye al cuidado de la
-            salud respiratoria mediante el uso de plantas como alternativa
-            natural, promoviendo prácticas de prevención y autocuidado dentro
-            del hogar.
-          </p>
-          <li><strong>ODS 11:</strong> Ciudades y Comunidades Sostenibles.</li>
-          <p>
-            El proyecto aporta a la mejora del entorno urbano al generar un
-            espacio verde en el interior del hogar, lo cual resulta
-            especialmente significativo en contextos afectados por la
-            contaminación industrial.
-          </p>
-          <li><strong>ODS 13:</strong> Acción por el Clima.</li>
-          <p>
-            A través de acciones concretas como la siembra de plantas que
-            contribuyen a la calidad del aire, el proyecto promueve una
-            respuesta local frente a problemáticas ambientales globales.
-          </p>
-          <li><strong>ODS 15:</strong> Vida de Ecosistemas Terrestres.</li>
-          <p>
-            El proyecto promueve el cuidado y la valoración de las plantas como
-            elementos fundamentales del equilibrio ambiental, fortaleciendo la
-            conexión con la biodiversidad incluso en entornos urbanos.
-          </p>
+          <li>
+            <strong>ODS 3: Salud y Bienestar.</strong>
+            <p>
+              La implementación de la huerta medicinal contribuye al cuidado de
+              la salud respiratoria mediante el uso de plantas como alternativa
+              natural, promoviendo prácticas de prevención y autocuidado dentro
+              del hogar.
+            </p>
+          </li>
+          <li>
+            <strong>ODS 11: Ciudades y Comunidades Sostenibles.</strong>
+            <p>
+              El proyecto aporta a la mejora del entorno urbano al generar un
+              espacio verde en el interior del hogar, lo cual resulta
+              especialmente significativo en contextos afectados por la
+              contaminación industrial.
+            </p>
+          </li>
+          <li>
+            <strong>ODS 13: Acción por el Clima.</strong>
+            <p>
+              A través de acciones concretas como la siembra de plantas que
+              contribuyen a la calidad del aire, el proyecto promueve una
+              respuesta local frente a problemáticas ambientales globales.
+            </p>
+          </li>
+          <li>
+            <strong>ODS 15: Vida de Ecosistemas Terrestres.</strong>
+            <p>
+              El proyecto promueve el cuidado y la valoración de las plantas
+              como elementos fundamentales del equilibrio ambiental,
+              fortaleciendo la conexión con la biodiversidad incluso en entornos
+              urbanos.
+            </p>
+          </li>
         </ul>
       </div>
     </div>
@@ -113,59 +140,199 @@ import MainLayout from "../layouts/MainLayout.astro";
   }
   .hero-title {
     color: var(--color-primary-blue);
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     font-size: 2.2rem;
     font-weight: 800;
     line-height: 1.3;
   }
-  .text-left {
+  .layout-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3.5rem;
+    align-items: center;
+    margin-bottom: 2rem;
     text-align: left;
   }
-  .hero-text {
+  @media (max-width: 850px) {
+    .layout-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+  .text-column {
     font-size: 1.15rem;
-    max-width: 850px;
-    margin: 0 auto 3rem auto;
     color: var(--color-text);
     line-height: 1.8;
   }
-  .hero-text p {
+  .text-column p {
     margin-bottom: 1.5rem;
   }
-  .ident-box {
-    background: rgba(0, 165, 80, 0.05);
+  .text-full {
+    font-size: 1.15rem;
+    color: var(--color-text);
+    line-height: 1.8;
+    text-align: left;
+  }
+  .text-full p {
+    margin-bottom: 1.5rem;
+  }
+  .mt-2 {
+    margin-top: 1.5rem;
+  }
+  .mb-2 {
+    margin-bottom: 2rem;
+  }
+  .image-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 1rem;
+  }
+  .image-column::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--color-accent-green);
+    opacity: 0.15;
+    border-radius: 24px;
+    z-index: 0;
+    transition: all 0.4s ease;
+    transform: rotate(-3deg);
+  }
+  .image-column:hover::before {
+    transform: rotate(0deg) scale(1.02);
+    opacity: 0.25;
+  }
+  .image-wrapper {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 16px;
+    width: 100%;
+    aspect-ratio: 4/5;
+    display: flex;
+  }
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .image-wrapper:hover .hero-image {
+    transform: scale(1.08);
+  }
+  .image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2.5rem 1rem 1.5rem 1rem;
+    background: linear-gradient(to top, rgba(0, 50, 20, 0.85), transparent);
+    color: white;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .image-wrapper:hover .image-overlay {
+    transform: translateY(0);
+  }
+  .highlight-quote {
+    display: flex;
+    gap: 1.5rem;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 165, 80, 0.04),
+      rgba(0, 165, 80, 0.12)
+    );
     border-left: 5px solid var(--color-accent-green);
-    padding: 2rem;
-    border-radius: 8px;
-    margin-top: 3rem;
+    padding: 2.5rem;
+    border-radius: 0 16px 16px 0;
+    margin: 3.5rem 0;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease;
+  }
+  .highlight-quote:hover {
+    transform: translateX(5px);
+  }
+  .highlight-quote p {
+    margin: 0;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--color-primary-blue);
+    line-height: 1.7;
+  }
+  .highlight-quote .icon {
+    font-size: 3rem;
+  }
+  @media (max-width: 600px) {
+    .highlight-quote {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+      padding: 1.5rem;
+    }
+  }
+  .shadow-box {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  }
+  .ident-box {
+    background: white;
+    border-top: 6px solid var(--color-primary-blue);
+    padding: 3rem;
+    border-radius: 16px;
+    margin-top: 4.5rem;
+    text-align: left;
+    border: 1px solid rgba(0, 0, 0, 0.05);
   }
   .ident-box h3 {
     margin-top: 0;
-    color: var(--color-secondary-green);
+    margin-bottom: 1.5rem;
+    color: var(--color-primary-blue);
+    font-size: 1.6rem;
   }
   .ident-list {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  @media (max-width: 768px) {
+    .ident-list {
+      grid-template-columns: 1fr;
+    }
   }
   .ident-list li {
-    margin-bottom: 0.5rem;
+    background: rgba(0, 165, 80, 0.03);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 165, 80, 0.1);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+  .ident-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
   }
   .ident-list strong {
     color: var(--color-primary-blue);
-  }
-  .image-wrapper {
-    overflow: hidden;
-    max-width: 850px;
-    margin: 0 auto;
-    border-radius: 12px;
-  }
-  .hero-image {
-    width: 100%;
-    height: auto;
     display: block;
-    transition: transform 0.8s ease;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
   }
-  .image-wrapper:hover .hero-image {
-    transform: scale(1.05);
+  .ident-list p {
+    margin: 0;
+    font-size: 1.05rem;
+    color: var(--color-text);
   }
 </style>
