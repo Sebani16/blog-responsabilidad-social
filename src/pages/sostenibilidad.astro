@@ -3,119 +3,169 @@ import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="Sostenibilidad" description="Sostenibilidad de la Actividad">
-  <section class="content-section">
-    <div
-      class="glass-panel header-panel animate-fade-in-up"
-      style="animation-delay: 0.2s;"
-    >
-      <h2>
-        🌿 Pulmones Verdes: Huerta Medicinal para la Resiliencia Familiar en
-        Ciudad Guabinas.
-      </h2>
-      <p class="intro">
-        El proceso de análisis multidimensional sobre las problemáticas en
-        Ciudad Guabinas (Yumbo) generó una profunda empatía y responsabilidad al
-        ser conscientes de la afectación por la presión industrial de su
-        entorno.
+  <section
+    class="hero glass-panel animate-fade-in-up"
+    style="animation-delay: 0.2s;"
+  >
+    <h2 class="hero-title">
+      Pulmones Verdes: Huerta Medicinal para la Resiliencia Familiar en Ciudad
+      Guabinas.
+    </h2>
+    <div class="hero-text text-left" style="animation-delay: 0.2s;">
+      <p>
+        El proyecto “Pulmones Verdes: Huerta Medicinal para la Resiliencia
+        Familiar en Ciudad Guabinas” surge como una respuesta práctica a las
+        condiciones ambientales que afectan la calidad de vida en el entorno
+        familiar, especialmente la contaminación del aire y la pérdida del
+        conocimiento sobre el uso de plantas medicinales. En este sentido, la
+        propuesta no solo busca solucionar una problemática puntual, sino
+        generar un proceso sostenible que articule el bienestar humano con el
+        cuidado del entorno.
       </p>
+
+      <p>
+        La sostenibilidad del proyecto se construye a partir de acciones simples
+        pero significativas que pueden mantenerse en el tiempo sin requerir
+        grandes recursos económicos. La adecuación de espacios dentro del
+        apartamento y el cuidado cotidiano de las plantas permiten que la huerta
+        se convierta en una práctica permanente. Además, al ser desarrollada en
+        el núcleo familiar, se fortalece la apropiación del proceso, lo que
+        aumenta las posibilidades de continuidad más allá del ejercicio
+        académico.
+      </p>
+
+      <p>
+        Un aspecto clave es el componente formativo. A través de las actividades
+        realizadas, la familia no solo participa, sino que aprende a reconocer
+        el valor de las plantas como aliadas para la salud y el bienestar. Este
+        aprendizaje transforma la percepción frente al entorno, pasando de una
+        posición pasiva frente a la contaminación a una actitud activa de
+        autocuidado y adaptación. De esta manera, el hogar deja de ser
+        únicamente un espacio afectado por el contexto industrial y se convierte
+        en un escenario de solución y resiliencia.
+      </p>
+
+      <p>
+        Por otro lado, el proyecto se ajusta a la realidad del territorio. La
+        implementación de una huerta medicinal dentro de un apartamento
+        demuestra que, incluso en espacios reducidos y urbanos, es posible
+        generar alternativas sostenibles. Asimismo, el rescate de saberes
+        ancestrales fortalece la identidad familiar y permite recuperar
+        prácticas que habían sido desplazadas por dinámicas de consumo moderno.
+      </p>
+
+      <p>
+        Finalmente, el valor social del proyecto radica en su capacidad de
+        fortalecer vínculos familiares y promover valores como la
+        responsabilidad, la cooperación y el cuidado del entorno. Esto hace que
+        la sostenibilidad no dependa únicamente de los recursos físicos, sino
+        del compromiso colectivo, lo que facilita su permanencia en el tiempo y
+        su posible réplica en otros hogares con condiciones similares.
+      </p>
+
+      <div class="ident-box">
+        <h3>Aporte a los Objetivos de Desarrollo Sostenible:</h3>
+        <p>
+          El desarrollo de este proyecto se relaciona con distintos Objetivos de
+          Desarrollo Sostenible, ya que aborda de manera integral problemáticas
+          ambientales, sociales y de salud:
+        </p>
+        <ul class="ident-list">
+          <li><strong>ODS 3:</strong> Salud y Bienestar.</li>
+          <p>
+            La implementación de la huerta medicinal contribuye al cuidado de la
+            salud respiratoria mediante el uso de plantas como alternativa
+            natural, promoviendo prácticas de prevención y autocuidado dentro
+            del hogar.
+          </p>
+          <li><strong>ODS 11:</strong> Ciudades y Comunidades Sostenibles.</li>
+          <p>
+            El proyecto aporta a la mejora del entorno urbano al generar un
+            espacio verde en el interior del hogar, lo cual resulta
+            especialmente significativo en contextos afectados por la
+            contaminación industrial.
+          </p>
+          <li><strong>ODS 13:</strong> Acción por el Clima.</li>
+          <p>
+            A través de acciones concretas como la siembra de plantas que
+            contribuyen a la calidad del aire, el proyecto promueve una
+            respuesta local frente a problemáticas ambientales globales.
+          </p>
+          <li><strong>ODS 15:</strong> Vida de Ecosistemas Terrestres.</li>
+          <p>
+            El proyecto promueve el cuidado y la valoración de las plantas como
+            elementos fundamentales del equilibrio ambiental, fortaleciendo la
+            conexión con la biodiversidad incluso en entornos urbanos.
+          </p>
+        </ul>
+      </div>
     </div>
   </section>
 </MainLayout>
 
 <style>
-  .content-section {
-    padding: 2rem 0;
-  }
-  .header-panel {
-    padding: 3rem 2rem;
+  .hero {
     text-align: center;
-    margin-bottom: 3.5rem;
-    border-top: 6px solid var(--color-primary-blue);
-    margin-inline: 1rem;
+    padding: 3.5rem 2rem;
+    margin: 2rem auto;
+    max-width: 1000px;
+    border-top: 6px solid var(--color-accent-green);
   }
-  .header-panel h2 {
+  .hero-title {
     color: var(--color-primary-blue);
-    margin-bottom: 1.5rem;
-    font-size: 2.4rem;
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
     font-weight: 800;
+    line-height: 1.3;
   }
-  .intro {
-    font-size: 1.25rem;
+  .text-left {
+    text-align: left;
+  }
+  .hero-text {
+    font-size: 1.15rem;
+    max-width: 850px;
+    margin: 0 auto 3rem auto;
     color: var(--color-text);
-    margin-bottom: 0;
-    max-width: 800px;
-    margin-inline: auto;
     line-height: 1.8;
   }
-  .card-container {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-    padding: 1rem;
+  .hero-text p {
+    margin-bottom: 1.5rem;
   }
-  .card {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 16px;
-    display: flex;
-    gap: 2rem;
-    align-items: flex-start;
+  .ident-box {
+    background: rgba(0, 165, 80, 0.05);
+    border-left: 5px solid var(--color-accent-green);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 3rem;
   }
-  .objective-general {
-    border-left: 8px solid var(--color-highlight-yellow);
-  }
-  .objective-specific {
-    border-left: 8px solid var(--color-accent-green);
-  }
-
-  .card-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    flex-shrink: 0;
-    color: white;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  }
-  .bg-yellow {
-    background: var(--color-highlight-yellow);
-    color: var(--color-text);
-  }
-  .bg-green {
-    background: var(--color-accent-green);
-  }
-
-  .card-content h3 {
+  .ident-box h3 {
     margin-top: 0;
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    font-weight: 800;
-    color: var(--color-text);
+    color: var(--color-secondary-green);
   }
-  .card-content p,
-  .card-content ul {
-    line-height: 1.7;
-    color: #4a5568;
-    font-size: 1.1rem;
+  .ident-list {
+    list-style: none;
+    padding: 0;
     margin: 0;
   }
-  .card-content ul {
-    padding-left: 1.5rem;
+  .ident-list li {
+    margin-bottom: 0.5rem;
   }
-  .card-content li {
-    margin-bottom: 0.8rem;
+  .ident-list strong {
+    color: var(--color-primary-blue);
   }
-
-  @media (max-width: 768px) {
-    .card {
-      flex-direction: column;
-      gap: 1.5rem;
-      padding: 2rem;
-    }
+  .image-wrapper {
+    overflow: hidden;
+    max-width: 850px;
+    margin: 0 auto;
+    border-radius: 12px;
+  }
+  .hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.8s ease;
+  }
+  .image-wrapper:hover .hero-image {
+    transform: scale(1.05);
   }
 </style>
