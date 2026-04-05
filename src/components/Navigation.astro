@@ -4,25 +4,59 @@ const pathname = new URL(Astro.request.url).pathname;
 const base = import.meta.env.BASE_URL;
 
 // Limpiamos el base del pathname para saber qué tab marcar "active", y quitamos '/' extras al final
-const cleanPath = pathname.replace(base, '').replace(/\/$/, '');
-const currentPath = cleanPath === '' ? '' : cleanPath.replace(/^\//, '');
+const cleanPath = pathname.replace(base, "").replace(/\/$/, "");
+const currentPath = cleanPath === "" ? "" : cleanPath.replace(/^\//, "");
 
 // Función helper para construir URLs absolutas correctas relativas a la carpeta base del repo
 const getPath = (route: string) => {
   if (!route) return base;
   // Garantizamos evitar dobles slashes
-  const sep = base.endsWith('/') ? '' : '/';
+  const sep = base.endsWith("/") ? "" : "/";
   return `${base}${sep}${route}`;
 };
 ---
+
 <nav aria-label="Navegación principal" class="main-nav">
   <ul class="nav-tabs">
-    <li><a href={getPath('')} class={currentPath === "" ? "active" : ""}>Inicio</a></li>
-    <li><a href={getPath('comunidad')} class={currentPath === "comunidad" ? "active" : ""}>Comunidad</a></li>
-    <li><a href={getPath('problematica-1')} class={currentPath === "problematica-1" ? "active" : ""}>Problemática 1</a></li>
-    <li><a href={getPath('problematica-2')} class={currentPath === "problematica-2" ? "active" : ""}>Problemática 2</a></li>
-    <li><a href={getPath('justificacion')} class={currentPath === "justificacion" ? "active" : ""}>Justificación</a></li>
-    <li><a href={getPath('plan-de-trabajo')} class={currentPath === "plan-de-trabajo" ? "active" : ""}>Plan de Trabajo</a></li>
+    <li>
+      <a href={getPath("")} class={currentPath === "" ? "active" : ""}
+        >Inicio</a>
+    </li>
+    <li>
+      <a
+        href={getPath("comunidad")}
+        class={currentPath === "comunidad" ? "active" : ""}>Comunidad</a>
+    </li>
+    <li>
+      <a
+        href={getPath("problematica-1")}
+        class={currentPath === "problematica-1" ? "active" : ""}
+        >Problemática 1</a>
+    </li>
+    <li>
+      <a
+        href={getPath("problematica-2")}
+        class={currentPath === "problematica-2" ? "active" : ""}
+        >Problemática 2</a>
+    </li>
+    <li>
+      <a
+        href={getPath("justificacion")}
+        class={currentPath === "justificacion" ? "active" : ""}
+        >Justificación</a>
+    </li>
+    <li>
+      <a
+        href={getPath("plan-de-trabajo")}
+        class={currentPath === "plan-de-trabajo" ? "active" : ""}
+        >Plan de Trabajo</a>
+    </li>
+    <li>
+      <a
+        href={getPath("sostenibilidad")}
+        class={currentPath === "sostenibilidad" ? "active" : ""}
+        >Sostenibilidad</a>
+    </li>
   </ul>
 </nav>
 
@@ -56,7 +90,7 @@ const getPath = (route: string) => {
     background-color: rgba(255, 255, 255, 0.2);
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   }
   .nav-tabs a.active {
     background-color: var(--color-highlight-yellow);
