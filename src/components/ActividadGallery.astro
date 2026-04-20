@@ -1,0 +1,286 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import descriptions from '../data/descriptions.json';
+
+export interface Props {
+  actId: string;
+}
+
+const { actId } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
+
+// Read folders for images
+const publicDir = path.join(process.cwd(), 'public');
+const actDir = path.join(publicDir, 'actividades', actId);
+
+// Find all original images in order
+let imageFiles = [];
+try {
+  const dirFiles = fs.readdirSync(actDir);
+  imageFiles = dirFiles.filter(f => f.startsWith('img') && (f.endsWith('.png') || f.endsWith('.jpeg') || f.endsWith('.jpg')));
+  
+  imageFiles.sort((a, b) => {
+    const numAX = a.match(/\d+/);
+    const numBX = b.match(/\d+/);
+    const numA = numAX ? parseInt(numAX[0], 10) : 0;
+    const numB = numBX ? parseInt(numBX[0], 10) : 0;
+    return numA - numB;
+  });
+} catch (e) {
+  console.error("No images found for", actId);
+}
+
+const activityData = (descriptions as any)[actId] || {};
+const sectionTitle = activityData.title || `Acción ${actId.replace('act', '')}`;
+const generalDescription = activityData.general_description || "";
+
+---
+
+<article class="actividad-gallery" id={actId} style="display: none;">
+  <header class="actividad-header">
+    <div class="indicator-badge">Acción {actId.replace('act', '')}</div>
+    <h2 class="section-title">{sectionTitle}</h2>
+    
+    {generalDescription && (
+      <div class="general-desc-box">
+        <p>{generalDescription}</p>
+      </div>
+    )}
+  </header>
+
+  <div class="carousel-container">
+    <div class="carousel-viewport" id={`viewport-${actId}`}>
+      {imageFiles.length > 0 ? (
+        imageFiles.map((file) => (
+          <div class="carousel-slide">
+             <div class="slide-image-container">
+                <img src={`${baseUrl}/actividades/${actId}/${file}`} alt={sectionTitle} loading="lazy" />
+             </div>
+          </div>
+        ))
+      ) : (
+        <div class="empty-state">
+          <p>No se encontraron imágenes para esta actividad.</p>
+        </div>
+      )}
+    </div>
+
+    {imageFiles.length > 1 && (
+      <>
+        <button class="carousel-btn prev" aria-label="Anterior" data-direction="-1">
+          <svg viewBox="0 0 24 24" width="24" height="24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="currentColor"/></svg>
+        </button>
+        <button class="carousel-btn next" aria-label="Siguiente" data-direction="1">
+          <svg viewBox="0 0 24 24" width="24" height="24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="currentColor"/></svg>
+        </button>
+        <div class="carousel-dots">
+          {imageFiles.map((_, i) => (
+            <span class={`dot ${i === 0 ? 'active' : ''}`} data-index={i}></span>
+          ))}
+        </div>
+      </>
+    )}
+  </div>
+</article>
+
+<script>
+  function setupCarousel(actId: string) {
+    const container = document.getElementById(actId);
+    if (!container) return;
+
+    const viewport = container.querySelector('.carousel-viewport') as HTMLElement;
+    const dots = container.querySelectorAll('.dot');
+    const btns = container.querySelectorAll('.carousel-btn');
+
+    if (!viewport) return;
+
+    const updateDots = () => {
+      const scrollPos = viewport.scrollLeft;
+      const slideWidth = viewport.clientWidth;
+      const index = Math.round(scrollPos / slideWidth);
+      
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    };
+
+    viewport.addEventListener('scroll', updateDots);
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const dir = parseInt((btn as HTMLElement).dataset.direction || "0");
+        const slideWidth = viewport.clientWidth;
+        viewport.scrollBy({ left: slideWidth * dir, behavior: 'smooth' });
+      });
+    });
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const index = parseInt((dot as HTMLElement).dataset.index || "0");
+        const slideWidth = viewport.clientWidth;
+        viewport.scrollTo({ left: slideWidth * index, behavior: 'smooth' });
+      });
+    });
+  }
+
+  // Initialize for all tabs
+  ['act1', 'act2', 'act3', 'act4', 'act5', 'act6'].forEach(setupCarousel);
+</script>
+
+<style>
+  .actividad-gallery {
+    animation: fadeIn 0.4s ease forwards;
+    padding: 1rem 0 3rem;
+  }
+  
+  .actividad-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  
+  .indicator-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--color-accent-green, #00A550), var(--color-primary-blue, #00508B));
+    color: white;
+    padding: 0.4rem 1.2rem;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    color: var(--color-primary-blue, #00508B);
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+  }
+
+  .general-desc-box {
+    background: rgba(255, 255, 255, 0.7);
+    border-left: 4px solid var(--color-accent-green, #00A550);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1.2rem 2rem;
+    border-radius: 0 12px 12px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: left;
+  }
+
+  .general-desc-box p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-text, #333);
+    font-weight: 500;
+  }
+
+  .carousel-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .carousel-viewport {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  }
+
+  .carousel-viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .carousel-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f0f4f8;
+  }
+
+  .slide-image-container {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+  }
+
+  .slide-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 10;
+    color: var(--color-primary-blue);
+    transition: all 0.3s ease;
+  }
+
+  .carousel-btn:hover {
+    background: var(--color-accent-green);
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .carousel-btn.prev { left: -10px; }
+  .carousel-btn.next { right: -10px; }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 1.5rem;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .dot.active {
+    background: var(--color-accent-green);
+    width: 24px;
+    border-radius: 10px;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    .section-title { font-size: 1.6rem; }
+    .carousel-btn { width: 36px; height: 36px; }
+    .carousel-btn.prev { left: 0px; }
+    .carousel-btn.next { right: 0px; }
+  }
+</style>

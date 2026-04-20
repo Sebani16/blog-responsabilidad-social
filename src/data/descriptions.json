@@ -1,0 +1,26 @@
+{
+  "act1": {
+    "title": "Reconocimiento y sensibilización del microentorno",
+    "general_description": "Realizar una observación directa y registro de las condiciones del hogar para identificar el impacto del polvo industrial en la salud familiar."
+  },
+  "act2": {
+    "title": "Fundamentación técnica y elección botánica",
+    "general_description": "Investigación bibliográfica sobre especies medicinales purificadoras aptas para el clima de Yumbo."
+  },
+  "act3": {
+    "title": "Adecuación del espacio y recolección de insumos",
+    "general_description": "Selección de puntos con luz y aire; preparación de recipientes reciclados y sustrato orgánico."
+  },
+  "act4": {
+    "title": "Siembra técnica y diálogo de saberes ancestrales",
+    "general_description": "Ejecución de la siembra familiar compartiendo usos tradicionales para la salud respiratoria."
+  },
+  "act5": {
+    "title": "Monitoreo biológico y evaluación de impacto",
+    "general_description": "Seguimiento al crecimiento y encuesta de percepción sobre la mejora en la calidad del aire."
+  },
+  "act6": {
+    "title": "Socialización de resultados y plan de sostenibilidad",
+    "general_description": "Presentación de beneficios a la familia y asignación de roles de cuidado permanente."
+  }
+}

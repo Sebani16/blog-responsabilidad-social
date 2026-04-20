@@ -1,0 +1,175 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import ActividadGallery from "../components/ActividadGallery.astro";
+
+const acts = [
+  { id: "act1", label: "Actividad 1" },
+  { id: "act2", label: "Actividad 2" },
+  { id: "act3", label: "Actividad 3" },
+  { id: "act4", label: "Actividad 4" },
+  { id: "act5", label: "Actividad 5" },
+  { id: "act6", label: "Actividad 6" },
+];
+---
+
+<MainLayout
+  title="Actividades"
+  description="Galería secuencial de las actividades desarrolladas en la huerta."
+>
+  <section
+    class="actividades-container animate-fade-in-up"
+    style="animation-delay: 0.1s;"
+  >
+    <div class="sub-nav-wrapper">
+      <nav class="sub-nav" aria-label="Navegación de actividades">
+        <ul class="sub-tabs-list" id="actTabsList">
+          {
+            acts.map((act, index) => (
+              <li>
+                <button
+                  class={`sub-tab-btn ${index === 0 ? "active" : ""}`}
+                  data-target={act.id}
+                  aria-selected={index === 0 ? "true" : "false"}
+                >
+                  {act.label}
+                </button>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+
+    <div class="content-wrapper" id="actContentWrapper">
+      {acts.map((act) => <ActividadGallery actId={act.id} />)}
+    </div>
+  </section>
+</MainLayout>
+
+<script>
+  // Simple client-side tab switcher logic
+  const buttons = document.querySelectorAll(".sub-tab-btn");
+  const panels = document.querySelectorAll(".actividad-gallery");
+
+  if (buttons.length > 0 && panels.length > 0) {
+    // Show first panel
+    (panels[0] as HTMLElement).style.display = "block";
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        // Remove active class from buttons
+        buttons.forEach((b) => {
+          b.classList.remove("active");
+          b.setAttribute("aria-selected", "false");
+        });
+
+        // Add active class to clicked
+        btn.classList.add("active");
+        btn.setAttribute("aria-selected", "true");
+
+        const targetId = btn.getAttribute("data-target");
+
+        // Hide all panels
+        panels.forEach((p) => {
+          (p as HTMLElement).style.display = "none";
+        });
+
+        // Show target panel with slight delay to re-trigger animation
+        const targetPanel = document.getElementById(targetId);
+        if (targetPanel) {
+          targetPanel.style.display = "block";
+        }
+      });
+    });
+  }
+</script>
+
+<style>
+  .actividades-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .sub-nav-wrapper {
+    margin-bottom: 2.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+  }
+
+  .sub-nav-wrapper::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 5%;
+    right: 5%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 165, 80, 0.3),
+      transparent
+    );
+  }
+
+  .sub-nav {
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent-green) rgba(0, 0, 0, 0.05);
+  }
+
+  .sub-nav::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .sub-nav::-webkit-scrollbar-thumb {
+    background-color: var(--color-accent-green);
+    border-radius: 10px;
+  }
+
+  .sub-tabs-list {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0 1rem;
+    white-space: nowrap;
+  }
+
+  .sub-tab-btn {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0, 165, 80, 0.2);
+    color: var(--color-primary-blue, #00508b);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    backdrop-filter: blur(5px);
+  }
+
+  .sub-tab-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    border-color: var(--color-accent-green, #00a550);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 165, 80, 0.1);
+  }
+
+  .sub-tab-btn.active {
+    background: var(--color-accent-green, #00a550);
+    color: white;
+    border-color: var(--color-accent-green, #00a550);
+    box-shadow: 0 8px 15px rgba(0, 165, 80, 0.25);
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  .content-wrapper {
+    min-height: 50vh;
+  }
+</style>
